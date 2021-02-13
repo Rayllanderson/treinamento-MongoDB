@@ -12,14 +12,14 @@ public class User implements Serializable{
     
     @Id
     private String id;
-    private String name;
+    private String nome;
     private String email;
     
     public User() {};
     
-    public User(String id, String name, String email) {
+    public User(String id, String nome, String email) {
 	this.id = id;
-	this.name = name;
+	this.nome = nome;
 	this.email = email;
     }
 
@@ -31,12 +31,12 @@ public class User implements Serializable{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getEmail() {
