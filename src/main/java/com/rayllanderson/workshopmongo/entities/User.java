@@ -1,22 +1,29 @@
 package com.rayllanderson.workshopmongo.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "user")
-public class User implements Serializable{
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     private String id;
     private String nome;
     private String email;
-    
-    public User() {};
-    
+
+    @DBRef(lazy = true)
+    private List<Post> posts = new ArrayList<>();
+
+    public User() {
+    };
+
     public User(String id, String nome, String email) {
 	this.id = id;
 	this.nome = nome;
@@ -24,27 +31,31 @@ public class User implements Serializable{
     }
 
     public String getId() {
-        return id;
+	return id;
     }
 
     public void setId(String id) {
-        this.id = id;
+	this.id = id;
     }
 
     public String getNome() {
-        return nome;
+	return nome;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+	this.nome = nome;
     }
 
     public String getEmail() {
-        return email;
+	return email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+	this.email = email;
+    }
+
+    public List<Post> getPosts() {
+	return posts;
     }
 
     @Override
@@ -71,5 +82,5 @@ public class User implements Serializable{
 	    return false;
 	return true;
     }
-    
+
 }
