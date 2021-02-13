@@ -18,13 +18,18 @@ public class UserService {
 	return repository.save(obj);
     }
     
-    public User findById(String id) {
-	User user = repository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Objeto User não encontrado"));
-	return user;
+    public User findById(String id) throws ObjectNotFoundException{
+	User obj = repository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+	return obj;
     }
     
     public User fromDTO(UserDTO obj) {
 	return new User(obj.getId(), obj.getNome(), obj.getEmail());
+    }
+
+    public void deleteById(String id) throws ObjectNotFoundException{
+	findById(id);
+	repository.deleteById(id);
     }
     
 }
