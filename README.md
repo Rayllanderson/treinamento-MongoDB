@@ -1,6 +1,6 @@
 # Treinamento MongoDB
 
-Criação de uma API de posts e comentários utilizando o banco de dados NoSQL MongoDB
+Criando uma REST API de posts e comentários utilizando o banco de dados NoSQL MongoDB
 
 ## Endpoints
 
